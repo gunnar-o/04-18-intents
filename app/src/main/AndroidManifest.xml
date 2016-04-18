@@ -20,7 +20,26 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edu.uw.intentdemo.MainActivity" />
+
+            <intent-filter> <!--Which actions can this activity respond to (must be one from each category)-->
+                <action
+                    android:name="android.intent.action.DIAL"/>
+                <action
+                    android:name="android.intent.action.CALL" />
+                <data
+                    android:scheme="tel" />
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
+
+        <receiver android:name=".MyReceiver">
+            <intent-filter> <!--Which actions can this activity respond to (must be one from each category)-->
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
